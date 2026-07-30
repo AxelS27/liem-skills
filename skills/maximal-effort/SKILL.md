@@ -83,9 +83,10 @@ When an AI Agent is assigned multi-artifact tasks — such as writing 10–20 co
 > - Total task duration,
 > - Previous effort expenditure.
 
-### Deliverable Isolation Principle
+### Deliverable Isolation & Multi-Artifact Batching Principle
 > **The attention assigned to the current active deliverable MUST be strictly isolated from future deliverables.**  
-> Future workload queue focus MUST NOT consume, diminish, or preempt focus intended for the current artifact.
+> - Future workload queue focus MUST NOT consume, diminish, or preempt focus intended for the current artifact.
+> - **Multi-Artifact Batching Rule**: When instructed to generate multiple complex artifacts (such as 10-20 skill definitions, modules, or specifications), the agent MUST NOT emit superficial 15-20 line outlines or abbreviated stubs in a rapid loop. The agent MUST isolate each artifact deliverable and generate complete, production-grade content (or split execution into structured batches across turns), ensuring zero quality dilution regardless of total request size.
 
 ### Quality Invariants
 The following properties **MUST** remain invariant throughout execution regardless of workload growth:
