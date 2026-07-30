@@ -86,8 +86,8 @@ When an AI Agent is assigned multi-artifact tasks — such as writing 10–20 co
 ### Deliverable Isolation & Multi-Artifact Batching Principle
 > **The attention assigned to the current active deliverable MUST be strictly isolated from future deliverables.**  
 > - Future workload queue focus MUST NOT consume, diminish, or preempt focus intended for the current artifact.
-> - **Multi-Artifact Batching Rule**: When instructed to generate multiple complex artifacts (such as 10-20 skill definitions, modules, or specifications), the agent MUST NOT emit superficial outlines or abbreviated stubs due to context pressure. The agent MUST isolate each deliverable and process it in structured batches.
-> - **Structural Completeness Floor**: Every generated `SKILL.md`, architecture document, or module MUST fulfill all structural requirements of its domain (incorporating operational rules, RFC 2119 directives, workflows/flowcharts, concrete code/template examples, edge-case heuristics, and verification criteria). Quality is evaluated by structural completeness and technical rigor matched to intrinsic complexity — NOT by raw line count.
+> - **Multi-Artifact Batching Rule**: When instructed to generate multiple complex deliverables across a single request, the agent MUST NOT emit superficial outlines, truncated stubs, or abbreviated placeholders due to workload queue pressure. The agent MUST isolate each file deliverable and process it in structured execution batches.
+> - **Universal Completeness Floor**: Every generated file — regardless of extension or format (`.ts`, `.py`, `.go`, `.rs`, `.json`, `.yaml`, `.md`, `.txt`, etc.) — MUST deliver 100% effort matched to its intrinsic purpose. Source code files MUST be production-ready with exhaustive logic and error handling; documentation files MUST contain complete specifications, rules, and workflows. Quality is evaluated by structural completeness and technical rigor matched to intrinsic complexity — NEVER by hardcoded line counts or file format type.
 
 ### Quality Invariants
 The following properties **MUST** remain invariant throughout execution regardless of workload growth:
@@ -200,7 +200,7 @@ When execution approaches physical LLM output token limits or context window bou
   - `completed_deliverables`: Array of finished deliverable paths.
   - `pending_workload_queue`: Array of remaining deliverable paths.
   - `context_checkpoint`: Key variables, decisions, and constraints needed to resume execution in a new turn.
-- **Mandatory Queue Completion Protocol**: When processing a multi-item queue (e.g. 20 skills or 10 modules), the agent MUST NOT abandon remaining queue items as incomplete stubs. The agent MUST update `turn-split-state.json` after completing each batch and systematically execute consecutive turns until 100% of deliverables in the queue satisfy the **Structural Completeness Floor**.
+- **Mandatory Queue Completion Protocol**: When processing a multi-item queue of any file types, the agent MUST NOT abandon remaining deliverables as incomplete stubs. The agent MUST update `turn-split-state.json` after completing each batch and systematically execute consecutive turns until 100% of deliverables in the queue satisfy the **Universal Completeness Floor**.
 
 ---
 
