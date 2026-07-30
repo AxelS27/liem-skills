@@ -20,7 +20,7 @@ The Liem Skills ecosystem provides reusable, agentic capabilities and behavioral
 | Skill Name | Version | Category | Overview | Documentation |
 | :--- | :---: | :--- | :--- | :---: |
 | **maximal-effort** | 1.0.0 | Execution Policy | Universal behavioral execution policy and quality governor enforcing deliverable isolation and zero TODO shortcuts. | [Skill README](skills/maximal-effort/README.md) \| [SKILL.md](skills/maximal-effort/SKILL.md) |
-| **benchforge** | 6.0.0 | Scientific Evaluation | Open scientific evidence infrastructure for empirical benchmarking across AI skills, software binaries, hardware, and algorithms. | [Skill README](skills/benchforge/README.md) \| [SKILL.md](skills/benchforge/SKILL.md) |
+| **benchforge** | 1.0.0 | Scientific Evaluation | Open scientific evidence infrastructure for empirical benchmarking across AI skills, software binaries, hardware, and algorithms. | [Skill README](skills/benchforge/README.md) \| [SKILL.md](skills/benchforge/SKILL.md) |
 
 ---
 
