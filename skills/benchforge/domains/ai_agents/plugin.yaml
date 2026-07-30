@@ -1,0 +1,17 @@
+plugin:
+  id: "bf-plugin-ai-agents"
+  name: "AI Agent & Skill Evaluation Plugin"
+  version: "1.0.0"
+  capabilities:
+    metrics:
+      - "quality_pass_rate"
+      - "wall_time_ms"
+      - "token_cost_usd"
+      - "unhandled_error_rate"
+  supports:
+    - "hidden_dataset_split"
+    - "multi_variable_workload_categories"
+    - "blind_human_review"
+    - "sandbox_execution"
+  limitations:
+    - "no_raw_gpu_thermal_telemetry"

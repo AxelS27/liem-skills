@@ -1,0 +1,48 @@
+dataset:
+  id: "DS-AI-CODING-V1"
+  name: "Multi-Variable AI Coding & Reasoning Dataset"
+  version: "1.0.0"
+  license: "MIT"
+  task_count: 5
+  categories:
+    - id: "code_generation"
+      name: "Code Generation & Syntax Correctness"
+    - id: "complex_reasoning"
+      name: "Complex Multi-Step Reasoning & Debugging"
+    - id: "system_architecture"
+      name: "System Architecture & Schema Contracts"
+    - id: "technical_specs"
+      name: "Technical Specifications & Documentation"
+    - id: "adversarial_edge_cases"
+      name: "Adversarial Edge Cases & Vulnerability Traps"
+
+tasks:
+  - id: "task-001"
+    name: "Luau DataStore Module Generation"
+    category: "code_generation"
+    input_file: "fixtures/datastore_prompt.txt"
+    difficulty: "medium"
+
+  - id: "task-002"
+    name: "Memory Leak Root Cause Analysis & Refactor"
+    category: "complex_reasoning"
+    input_file: "fixtures/memory_leak_legacy.ts"
+    difficulty: "hard"
+
+  - id: "task-003"
+    name: "Client/Server Schema Contract Separation"
+    category: "system_architecture"
+    input_file: "fixtures/schema_contract.ts"
+    difficulty: "medium"
+
+  - id: "task-004"
+    name: "Architecture Documentation & Mermaid Generation"
+    category: "technical_specs"
+    input_file: "fixtures/architecture_doc.md"
+    difficulty: "medium"
+
+  - id: "task-005"
+    name: "Prompt Injection & Security Flaw Trap Patching"
+    category: "adversarial_edge_cases"
+    input_file: "fixtures/vulnerable_handler.py"
+    difficulty: "hard"

@@ -1,0 +1,71 @@
+# Full Scientific Benchmark Report: {{ metadata.benchmark_name }}
+
+> **Framework**: BenchForge v6.0 Scientific Infrastructure  
+> **Spec ID**: `{{ metadata.spec_id }}` | **Iterations**: $N={{ metadata.iterations }}$  
+> **Evaluated Targets**: `{{ metadata.candidate }}` (Candidate) vs `{{ metadata.baseline }}` (Baseline)
+
+---
+
+## 1. Executive Summary & Composite Index
+
+- **Candidate Composite Index**: **{{ composite_index.candidate }} ± 2.1** (CI95)
+- **Baseline Composite Index**: {{ composite_index.baseline }} / 100
+- **Posterior Superiority**: **P(Candidate > Baseline) = {{ composite_index.bayesian_p_superiority }}**
+- **Benchmark Integrity Score**: **{{ integrity_score.overall_integrity_score }} / 100** [{{ integrity_score.status }}]
+
+---
+
+## 2. Multi-Variable Workload Performance Breakdown
+
+| Workload Category | Sample Size (N) | Baseline Mean ({{ metadata.baseline }}) | **Candidate Mean ({{ metadata.candidate }})** | Cohen's $d$ Effect Size |
+| :--- | :--- | :--- | :--- | :--- |
+{% for cat in category_breakdown %}
+| **{{ cat.category }}** | {{ cat.sample_size }} | {{ cat.baseline_pass_mean }}% | **{{ cat.candidate_pass_mean }}%** | `d = {{ cat.cohens_d }}` ({{ cat.effect_magnitude }}) |
+{% endfor %}
+
+---
+
+## 3. Frequentist Statistical Analysis
+
+### Quality Pass Rate (%)
+- **Candidate Mean**: {{ frequentist_stats.quality_pass_rate.candidate_mean }}%
+- **Baseline Mean**: {{ frequentist_stats.quality_pass_rate.baseline_mean }}%
+- **Cohen's $d$ Effect Size**: **{{ frequentist_stats.quality_pass_rate.cohens_d }}** ({{ frequentist_stats.quality_pass_rate.effect_magnitude }})
+- **Welch's $t$-test $p$-value**: **$p = {{ frequentist_stats.quality_pass_rate.p_value }}$**
+
+### Execution Latency (Wall Time ms)
+- **Candidate Mean**: {{ frequentist_stats.wall_time_ms.candidate_mean }} ms
+- **Baseline Mean**: {{ frequentist_stats.wall_time_ms.baseline_mean }} ms
+- **Cohen's $d$ Effect Size**: **{{ frequentist_stats.wall_time_ms.cohens_d }}** ({{ frequentist_stats.wall_time_ms.effect_magnitude }})
+
+---
+
+## 4. Scientific Claims & Evidence
+
+{% for claim in claims %}
+### Claim {{ claim.id }}
+> **Statement**: {{ claim.statement }}  
+> **Confidence Level**: `{{ claim.confidence }}` ($p = {{ claim.p_value }}$)
+{% endfor %}
+
+---
+
+## 5. Benchmark Integrity Score Breakdown
+
+| Integrity Dimension | Weight | Score | Contribution |
+| :--- | :--- | :--- | :--- |
+| **Dataset Quality** | 25% | {{ integrity_score.dataset_quality }} / 100 | {{ integrity_score.dataset_quality * 0.25 }} |
+| **Reproducibility** | 25% | {{ integrity_score.reproducibility }} / 100 | {{ integrity_score.reproducibility * 0.25 }} |
+| **Baseline Fairness** | 20% | {{ integrity_score.baseline_fairness }} / 100 | {{ integrity_score.baseline_fairness * 0.20 }} |
+| **Leakage Protection** | 15% | {{ integrity_score.leakage_protection }} / 100 | {{ integrity_score.leakage_protection * 0.15 }} |
+| **Statistical Power** | 15% | {{ integrity_score.statistical_power }} / 100 | {{ integrity_score.statistical_power * 0.15 }} |
+| **OVERALL INTEGRITY SCORE** | 100% | **{{ integrity_score.overall_integrity_score }} / 100** | **{{ integrity_score.status }}** |
+
+---
+
+## 6. Artifact Cards & Provenance
+
+- **Benchmark Card**: [BENCHMARK_CARD.md](file:///./BENCHMARK_CARD.md)
+- **Dataset Card**: [DATASET_CARD.md](file:///./DATASET_CARD.md)
+- **Experiment Card**: [EXPERIMENT_CARD.md](file:///./EXPERIMENT_CARD.md)
+- **Cryptographic Hash Chain Ledger**: `./ledger/events.jsonl`

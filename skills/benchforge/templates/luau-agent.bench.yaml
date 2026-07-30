@@ -1,0 +1,107 @@
+apiVersion: benchforge/v6.0
+kind: Benchmark
+
+metadata:
+  id: "BF-AI-00042"
+  name: roblox-luau-agent-evaluation
+  version: 1.0.0
+  created: "2026-07-31"
+  author: "Agentic AI Team"
+  license: "MIT"
+
+scope:
+  measures:
+    - "Luau syntax correctness and compilation"
+    - "Roblox API DataStore & Networking knowledge"
+    - "Code modularity and architecture consistency"
+  does_not_measure:
+    - "3D game asset art design"
+    - "Creative narrative game mechanics"
+  intended_users:
+    - "Roblox Game Developers & AI Skill Authors"
+  validity_boundary: "Valid strictly for Luau scripting on Roblox Client/Server architecture v550+."
+
+threat_model:
+  benchmark_gaming:
+    severity: "HIGH"
+    mitigation:
+      - "hidden_eval_split"
+      - "adversarial_prompt_injection_traps"
+  evaluator_bias:
+    severity: "MEDIUM"
+    mitigation:
+      - "blind_review"
+  hardware_advantage:
+    severity: "HIGH"
+    mitigation:
+      - "normalized_sandbox"
+
+experiment:
+  hypothesis:
+    null_h0: "Maximal-effort skill shows no statistical quality improvement over Vanilla GPT."
+    alternative_h1: "Maximal-effort skill achieves >90% pass rate with Cohen's d >= 0.8."
+  constraints:
+    hardware:
+      gpu: "NVIDIA RTX 4090"
+      cpu: "Intel i9-14900K"
+
+statistics:
+  sampling:
+    method: "sequential"
+    max_sample_N: 20
+    stop_condition: "bayesian_confidence > 99%"
+
+integrity:
+  formula:
+    dataset_quality: 0.25
+    reproducibility: 0.25
+    fairness: 0.20
+    leakage_protection: 0.15
+    statistical_power: 0.15
+
+subjects:
+  baseline:
+    name: "Vanilla GPT-4 Prompt (No Skill)"
+    config:
+      skill: "none"
+  candidate:
+    name: "Maximal Effort Skill v2.0"
+    config:
+      skill: "maximal-effort-v2"
+
+workload:
+  dataset:
+    ref: "skills/benchforge/datasets/manifests/ai_coding_tasks.yaml"
+    categories:
+      - "code_generation"
+      - "complex_reasoning"
+      - "system_architecture"
+      - "technical_specs"
+      - "adversarial_edge_cases"
+
+evaluation:
+  index_name: "Roblox Agent Productivity Index"
+  method: "weighted_average"
+  justification: "Quality pass rate weighted highest (40%) because production Luau code must compile without errors."
+  metrics:
+    quality_pass_rate:
+      type: "quality"
+      unit: "%"
+      weight: 0.4
+      direction: "higher_is_better"
+    wall_time_ms:
+      type: "performance"
+      unit: "ms"
+      weight: 0.3
+      direction: "lower_is_better"
+    token_cost_usd:
+      type: "efficiency"
+      unit: "USD"
+      weight: 0.2
+      direction: "lower_is_better"
+
+claims:
+  - id: "claim-001"
+    statement: "Maximal effort skill achieves >90% Luau code compilation correctness across all multi-variable workload categories."
+    evidence_metrics: ["quality_pass_rate"]
+    confidence_level: "HIGH"

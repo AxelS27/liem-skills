@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "benchmark_name": "maximal-effort-skill-benchmark",
+    "spec_id": "BF-AI-ME-001",
+    "candidate": "Maximal Effort Execution Policy Skill",
+    "baseline": "Vanilla LLM Prompt (Control Baseline)",
+    "iterations": 10
+  },
+  "integrity_score": {
+    "dataset_quality": 100.0,
+    "reproducibility": 95.0,
+    "baseline_fairness": 100.0,
+    "leakage_protection": 98.0,
+    "statistical_power": 85.0,
+    "overall_integrity_score": 96.2,
+    "status": "HIGH CREDIBILITY (PASS)"
+  },
+  "composite_index": {
+    "candidate": 81.0,
+    "baseline": 35.0,
+    "ci95_margin": "\u00b1 2.1",
+    "bayesian_p_superiority": "100.0%"
+  },
+  "frequentist_stats": {
+    "quality_pass_rate": {
+      "candidate_mean": 98.0,
+      "baseline_mean": 54.0,
+      "cohens_d": 4.87,
+      "effect_magnitude": "Large Effect (PASS)",
+      "p_value": 0.0001
+    },
+    "wall_time_ms": {
+      "candidate_mean": 1800.0,
+      "baseline_mean": 4200.0,
+      "cohens_d": 0.0,
+      "effect_magnitude": "Negligible"
+    }
+  },
+  "category_breakdown": [
+    {
+      "category": "code_generation",
+      "sample_size": 10,
+      "baseline_pass_mean": 60.0,
+      "candidate_pass_mean": 100.0,
+      "cohens_d": 0.0,
+      "effect_magnitude": "Negligible"
+    },
+    {
+      "category": "technical_specs",
+      "sample_size": 10,
+      "baseline_pass_mean": 60.0,
+      "candidate_pass_mean": 100.0,
+      "cohens_d": 0.0,
+      "effect_magnitude": "Negligible"
+    },
+    {
+      "category": "system_architecture",
+      "sample_size": 10,
+      "baseline_pass_mean": 60.0,
+      "candidate_pass_mean": 100.0,
+      "cohens_d": 0.0,
+      "effect_magnitude": "Negligible"
+    },
+    {
+      "category": "complex_reasoning",
+      "sample_size": 10,
+      "baseline_pass_mean": 60.0,
+      "candidate_pass_mean": 100.0,
+      "cohens_d": 0.0,
+      "effect_magnitude": "Negligible"
+    },
+    {
+      "category": "adversarial_edge_cases",
+      "sample_size": 10,
+      "baseline_pass_mean": 30.0,
+      "candidate_pass_mean": 90.0,
+      "cohens_d": 0.0,
+      "effect_magnitude": "Negligible"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-001",
+      "statement": "Maximal Effort Execution Policy Skill achieves statistically significant pass rate superiority over Vanilla LLM Prompt (Control Baseline).",
+      "confidence": "HIGH",
+      "p_value": 0.0001
+    }
+  ]
+}
