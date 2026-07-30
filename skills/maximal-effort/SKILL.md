@@ -86,7 +86,8 @@ When an AI Agent is assigned multi-artifact tasks — such as writing 10–20 co
 ### Deliverable Isolation & Multi-Artifact Batching Principle
 > **The attention assigned to the current active deliverable MUST be strictly isolated from future deliverables.**  
 > - Future workload queue focus MUST NOT consume, diminish, or preempt focus intended for the current artifact.
-> - **Multi-Artifact Batching Rule**: When instructed to generate multiple complex artifacts (such as 10-20 skill definitions, modules, or specifications), the agent MUST NOT emit superficial 15-20 line outlines or abbreviated stubs in a rapid loop. The agent MUST isolate each artifact deliverable and generate complete, production-grade content (or split execution into structured batches across turns), ensuring zero quality dilution regardless of total request size.
+> - **Multi-Artifact Batching Rule**: When instructed to generate multiple complex artifacts (such as 10-20 skill definitions, modules, or specifications), the agent MUST NOT emit superficial 15-30 line outlines or abbreviated stubs. The agent MUST isolate each deliverable and process it in structured batches.
+> - **Minimum Artifact Completeness Floor**: Every generated `SKILL.md`, architecture document, or module MUST meet a strict completeness floor (minimum 80-150 lines incorporating operational rules, RFC 2119 directives, ASCII/Mermaid flowcharts, concrete code/template examples, edge-case heuristics, and verification criteria). Emitting a 20-30 line stub is strictly classified as a Quality Governor Violation.
 
 ### Quality Invariants
 The following properties **MUST** remain invariant throughout execution regardless of workload growth:
@@ -199,6 +200,7 @@ When execution approaches physical LLM output token limits or context window bou
   - `completed_deliverables`: Array of finished deliverable paths.
   - `pending_workload_queue`: Array of remaining deliverable paths.
   - `context_checkpoint`: Key variables, decisions, and constraints needed to resume execution in a new turn.
+- **Mandatory Queue Completion Protocol**: When processing a multi-item queue (e.g. 20 skills or 10 modules), the agent MUST NOT abandon remaining queue items as 20-30 line stubs. The agent MUST update `turn-split-state.json` after completing each batch and systematically execute consecutive turns until 100% of deliverables in the queue satisfy the **Minimum Artifact Completeness Floor**.
 
 ---
 
