@@ -20,6 +20,7 @@ The Liem Skills ecosystem provides reusable, agentic capabilities and behavioral
 | Skill Name | Version | Category | Overview | Documentation |
 | :--- | :---: | :--- | :--- | :---: |
 | **maximal-effort** | 1.0.0 | Execution Policy | Universal behavioral execution policy and quality governor enforcing deliverable isolation and zero TODO shortcuts. | [Skill README](skills/maximal-effort/README.md) \| [SKILL.md](skills/maximal-effort/SKILL.md) |
+| **benchforge** | 6.0.0 | Scientific Evaluation | Open scientific evidence infrastructure for empirical benchmarking across AI skills, software binaries, hardware, and algorithms. | [Skill README](skills/benchforge/README.md) \| [SKILL.md](skills/benchforge/SKILL.md) |
 
 ---
 
@@ -35,6 +36,7 @@ setup <skill-name> skills
 For example:
 ```text
 setup maximal-effort skills
+setup benchforge skills
 ```
 The AI agent will search local and global skill paths, locate the target `SKILL.md`, and register it in `AGENTS.md` at your project root.
 
@@ -43,7 +45,8 @@ Add the skill reference to `AGENTS.md` in your project root directory:
 
 ```markdown
 # Skill Reference
-- [<skill-name>](skills/<skill-name>/SKILL.md)
+- [maximal-effort](skills/maximal-effort/SKILL.md)
+- [benchforge](skills/benchforge/SKILL.md)
 ```
 
 ---
