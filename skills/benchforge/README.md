@@ -77,20 +77,20 @@ User source code stays 100% clean. All benchmark specs, datasets, and output rep
 
 ### 1. Direct Command Line Interface (`benchforge`)
 
-Run commands directly using the `benchforge` CLI:
+Run commands in chronological workflow order:
 
 ```bash
-# Validate BDL Spec & Calculate Benchmark Integrity Score
+# 1. Initialize a New Benchmark Workspace
+benchforge init --domain ai_agents
+
+# 2. Validate BDL Spec & Calculate Benchmark Integrity Score
 benchforge validate --spec ./skills/benchforge/templates/luau-agent.bench.yaml
 
-# Execute Isolated Sandbox Workload Harness (N Iterations)
+# 3. Execute Isolated Sandbox Workload Harness (N Iterations)
 benchforge run --spec ./skills/benchforge/templates/luau-agent.bench.yaml --iterations 5
 
-# Generate Dual-Tier Report Artifacts
+# 4. Generate Dual-Tier Report Artifacts
 benchforge report --results ./benchmarks/results
-
-# Initialize a New Benchmark Workspace
-benchforge init --domain ai_agents
 ```
 
 ### 2. Natural Language Agent Activation
